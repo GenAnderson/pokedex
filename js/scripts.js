@@ -1,3 +1,3 @@
 alert("Hello world");
 
-let favoriteFood = mango;
+let favoriteFood = "mango";
