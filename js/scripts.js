@@ -1,36 +1,21 @@
-let pokemonList = [
-  {
-    name: "Gengar",
-    height: 1.5,
-    types: ["ghost", "poison"],
-  },
-  {
-    name: "Ditto",
-    height: 0.3,
-    types: ["normal"],
-  },
-  {
-    name: "Psyduck",
-    height: 0.8,
-    types: ["water"],
-  },
-];
-
-// It said in order to print the "details" of each one so I removed the template literal and included the "details"
-
-// Saving from previous exercise 1.5
-// (function () {
-//   pokemonList.forEach((pokemon) => {
-//     document.write(
-//       `<p> Name: ${pokemon.name}</p>
-//     <p>Height: ${pokemon.height}</p>
-//     <p>Types: ${pokemon.types}</p><br/>`
-//     );
-//   });
-// })();
-
-// Exercise 1.6
 let pokemonRepository = (function (pokemon) {
+  let pokemonList = [
+    {
+      name: "Gengar",
+      height: 1.5,
+      types: ["ghost", "poison"],
+    },
+    {
+      name: "Ditto",
+      height: 0.3,
+      types: ["normal"],
+    },
+    {
+      name: "Psyduck",
+      height: 0.8,
+      types: ["water"],
+    },
+  ];
   function add(pokemon) {
     typeof pokemon === "object"
       ? pokemonList.push(pokemon)
@@ -71,8 +56,6 @@ let pokemonRepository = (function (pokemon) {
   };
 })();
 
-(function () {
-  pokemonList.forEach((pokemon) => {
-    pokemonRepository.addListItem(pokemon);
-  });
-})();
+pokemonRepository.getAll().forEach((pokemon) => {
+  pokemonRepository.addListItem(pokemon);
+});
