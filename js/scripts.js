@@ -16,27 +16,21 @@ let pokemonList = [
   },
 ];
 
-// for (i = 0; i < pokemonList.length; i++) {
-//   document.write(
-//     `<p> ${pokemonList[i].name} (height: ${pokemonList[i].height}) ${
-//       pokemonList[i].height > 1 ? " - Wow, thats big!" : " "
-//     }</p>`
-//   );
-// }
-
 // It said in order to print the "details" of each one so I removed the template literal and included the "details"
 
-(function () {
-  pokemonList.forEach((pokemon) => {
-    document.write(
-      `<p> Name: ${pokemon.name}</p>  
-    <p>Height: ${pokemon.height}</p>
-    <p>Types: ${pokemon.types}</p><br/>`
-    );
-  });
-})();
+// Saving from previous exercise 1.5
+// (function () {
+//   pokemonList.forEach((pokemon) => {
+//     document.write(
+//       `<p> Name: ${pokemon.name}</p>
+//     <p>Height: ${pokemon.height}</p>
+//     <p>Types: ${pokemon.types}</p><br/>`
+//     );
+//   });
+// })();
 
-let pokemonRepository = (function () {
+// Exercise 1.6
+let pokemonRepository = (function (pokemon) {
   function add(pokemon) {
     typeof pokemon === "object"
       ? pokemonList.push(pokemon)
@@ -47,11 +41,38 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
+  function addListItem(pokemon) {
+    let unorderedItem = document.querySelector("ul");
+    let listItem = document.createElement("li");
+    let button = document.createElement("button");
+
+    button.innerText = pokemon.name;
+    button.classList.add("button");
+    listItem.appendChild(button);
+    unorderedItem.appendChild(listItem);
+
+    clickHandler(button, pokemon);
+  }
+
+  function clickHandler(button, pokemon) {
+    button.addEventListener("click", function (event) {
+      showDetails(pokemon);
+    });
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
   return {
     add,
     getAll,
+    addListItem,
   };
 })();
 
-pokemonRepository.add({ name: "Mew" });
-console.log(pokemonRepository.getAll());
+(function () {
+  pokemonList.forEach((pokemon) => {
+    pokemonRepository.addListItem(pokemon);
+  });
+})();
