@@ -16,21 +16,40 @@ let pokemonList = [
   },
 ];
 
-for (i = 0; i < pokemonList.length; i++) {
-  document.write(
-    `<p> ${pokemonList[i].name} (height: ${pokemonList[i].height}) ${
-      pokemonList[i].height > 1 ? " - Wow, thats big!" : " "
-    }</p>`
-  );
-}
+// for (i = 0; i < pokemonList.length; i++) {
+//   document.write(
+//     `<p> ${pokemonList[i].name} (height: ${pokemonList[i].height}) ${
+//       pokemonList[i].height > 1 ? " - Wow, thats big!" : " "
+//     }</p>`
+//   );
+// }
 
-function divide(dividend, divisor) {
-  if (divisor === 0) {
-    return "You're trying to divide by zero";
-  } else {
-    let result = dividend / divisor;
-    return result;
+// It said in order to print the "details" of each one so I removed the template literal and included the "details"
+
+(function () {
+  pokemonList.forEach((pokemon) => {
+    document.write(
+      `<p> Name: ${pokemon.name}</p>  
+    <p>Height: ${pokemon.height}</p>
+    <p>Types: ${pokemon.types}</p><br/>`
+    );
+  });
+})();
+
+let pokemonRepository = (function () {
+  function add(pokemon) {
+    pokemonList.push(pokemon);
   }
-}
 
-console.log(divide(1, 4));
+  function getAll() {
+    return pokemonList;
+  }
+
+  return {
+    add,
+    getAll,
+  };
+})();
+
+pokemonRepository.add({ name: "Pikachu" });
+console.log(pokemonRepository.getAll());
