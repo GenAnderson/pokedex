@@ -38,7 +38,9 @@ let pokemonList = [
 
 let pokemonRepository = (function () {
   function add(pokemon) {
-    pokemonList.push(pokemon);
+    typeof pokemon === "object"
+      ? pokemonList.push(pokemon)
+      : alert(`Pokemon needs to be an object!`);
   }
 
   function getAll() {
@@ -51,5 +53,5 @@ let pokemonRepository = (function () {
   };
 })();
 
-pokemonRepository.add({ name: "Pikachu" });
+pokemonRepository.add({ name: "Mew" });
 console.log(pokemonRepository.getAll());
