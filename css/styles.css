@@ -34,7 +34,10 @@ body {
   max-width: 500px;
 }
 .modal-content {
+  box-shadow: 0.1rem 0.2rem 0.3rem rgb(65, 64, 64);
   padding: 1rem;
+  background: linear-gradient(to top, rgb(201, 200, 199), white);
+  border: none;
 }
 .modal-header {
   border: none;
@@ -44,10 +47,26 @@ body {
   text-transform: uppercase;
 }
 .modal-img {
-  max-width: 200px;
-  max-height: 200px;
+  width: 8rem;
+  height: 8rem;
   display: flex;
   align-self: center;
+}
+
+.modal-adjContainer {
+  padding-top: 1rem;
+  border: 1px solid #454647;
+}
+.modal-body--typesBox {
+  text-align: left;
+}
+.modal-body--abilitiesBox {
+  text-align: left;
+}
+
+/* FOOTER */
+.modal-footer {
+  border: none;
 }
 
 /* BUTTONS */
