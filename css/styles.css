@@ -34,7 +34,7 @@ body {
   max-width: 500px;
 }
 .modal-content {
-  box-shadow: 0.1rem 0.2rem 0.3rem rgb(65, 64, 64);
+  box-shadow: 0.1rem 0.2rem 0.4rem black;
   padding: 1rem;
   background: linear-gradient(to top, rgb(201, 200, 199), white);
   border: none;
@@ -42,9 +42,13 @@ body {
 .modal-header {
   border: none;
   padding: 0.5rem 0.5rem 1rem 0.5rem;
+  border-bottom: 0.1rem rgb(100, 100, 100) solid;
+  display: flex;
+  justify-content: space-between;
 }
 .modal-title {
   text-transform: uppercase;
+  font-weight: bold;
 }
 .modal-img {
   width: 8rem;
@@ -55,7 +59,9 @@ body {
 
 .modal-adjContainer {
   padding-top: 1rem;
-  border: 1px solid #454647;
+  background-color: white;
+  box-shadow: 0.1rem 0.1rem 0.3rem black;
+  border-radius: 0.2rem;
 }
 .modal-body--typesBox {
   text-align: left;
@@ -95,8 +101,4 @@ button {
   border: none;
   font-weight: bold;
   box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.685);
-}
-
-.modal-header .close {
-  padding: 0.5rem;
 }

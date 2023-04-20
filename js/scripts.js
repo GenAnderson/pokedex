@@ -2,8 +2,6 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
-  let modalContainer = document.querySelector(".container-fluid");
-
   // fetch data from pokemon api
   function loadList() {
     return fetch(apiUrl)
@@ -19,7 +17,7 @@ let pokemonRepository = (function () {
           add(pokemon);
         });
       })
-      .catch(function (e) {
+      .catch(function (error) {
         console.error(error);
       });
   }
@@ -120,7 +118,7 @@ let pokemonRepository = (function () {
   function add(pokemon) {
     typeof pokemon === "object"
       ? pokemonList.push(pokemon)
-      : alert(`Pokemon needs to be an object!`);
+      : alert("Pokemon needs to be an object!");
   }
 
   // returns entire pokelist
@@ -153,13 +151,6 @@ let pokemonRepository = (function () {
       displayModal(pokemon);
     });
   }
-
-  modalContainer.addEventListener("click", (e) => {
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
 
   return {
     add,
