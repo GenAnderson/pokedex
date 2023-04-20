@@ -83,6 +83,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   background: linear-gradient(to left top, lightblue, #e0ecec);
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.685);
   border: none;
 }
 
@@ -101,5 +102,8 @@ button {
   text-transform: uppercase;
   border: none;
   font-weight: bold;
-  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.685);
+}
+
+.modal-header .close {
+  font-size: 2rem;
 }
