@@ -1,14 +1,16 @@
 # Pokedex
 
-Simple web app about pokemon!
+Very simple web app for searching pokemon.
 
-### Getting Started
+This app retrieves pokemon information from an external API.
 
-Click on `github-pages` to your right or [click here](https://genanderson.github.io/pokedex/).
+## Link
 
-Select any pokemon to view it's information.
+[Pokedex](https://genanderson.github.io/pokedex/).
 
-### Contact
+## Tech
 
-If you have any questions or would just like to contact me, my email is:
-[genanderson78@gmail.com](genanderson78@gmail.com)
+- Bootstrap
+- Jquery
+- Promise-polyfill
+- Fetch-polyfill

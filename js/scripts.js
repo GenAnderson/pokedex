@@ -1,20 +1,27 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+  let api = [
+    { url: "https://pokeapi.co/api/v2/pokemon/?limit=200", offset: 0 },
+  ];
+  let currentApi = api[0];
 
   // fetch data from pokemon api
   function loadList() {
-    return fetch(apiUrl)
+    return fetch(currentApi.url)
       .then(function (response) {
         return response.json();
       })
       .then(function (json) {
+        let count = currentApi.offset + 1;
         json.results.forEach(function (item) {
+          console.log(item);
           let pokemon = {
             name: item.name,
             detailsUrl: item.url,
+            id: count,
           };
           add(pokemon);
+          count = count + 1;
         });
       })
       .catch(function (error) {
@@ -43,6 +50,28 @@ let pokemonRepository = (function () {
         console.error(e);
       });
   }
+
+  // for search bar
+  function searchItem() {
+    let searchInput = document
+      .querySelector("#searchInput")
+      .value.toLowerCase();
+    let listArray = document.querySelectorAll(".list-group-item");
+
+    listArray.forEach(function (pokemon) {
+      let listBtn = pokemon
+        .querySelector(".list-button")
+        .innerText.toLowerCase();
+      if (listBtn.includes(searchInput)) {
+        pokemon.style.display = "inline-block";
+      } else {
+        pokemon.style.display = "none";
+      }
+    });
+  }
+
+  let searchInput = document.querySelector("#searchInput");
+  searchInput.addEventListener("input", searchItem);
 
   // Displays the Modal
   function displayModal(item) {
@@ -131,13 +160,19 @@ let pokemonRepository = (function () {
     let unorderedItem = document.querySelector("ul");
     let listItem = document.createElement("li");
     let button = document.createElement("button");
+    let pokemonCombinedName = `#${pokemon.id} ${pokemon.name}`;
 
     listItem.classList.add("list-group-item");
     listItem.setAttribute("data-toggle", "modal");
     listItem.setAttribute("data-target", "#modal");
 
-    button.innerText = pokemon.name;
-    button.classList.add("btn", "btn-light", "pokemon-list--btn");
+    button.innerText = pokemonCombinedName;
+    button.classList.add(
+      "list-button",
+      "btn",
+      "btn-light",
+      "pokemon-list--btn"
+    );
 
     listItem.appendChild(button);
     unorderedItem.appendChild(listItem);
