@@ -8,7 +8,7 @@ Pokemon information is retrieved from an external API.
 
 ## Link
 
-[Pokedex](https://genanderson.github.io/pokedex/).
+[Go to Pokedex](https://genanderson.github.io/pokedex/).
 
 ## Tech
 
