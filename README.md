@@ -1,8 +1,10 @@
 # Pokedex
 
-Very simple web app for searching pokemon.
+Very simple web app for searching pokemon. Use the search bar or select a pokemon from the list and see it's details.
 
-This app retrieves pokemon information from an external API.
+![Alt text](pokedex.png)
+
+Pokemon information is retrieved from an external API.
 
 ## Link
 
